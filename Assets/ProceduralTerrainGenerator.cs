@@ -10,17 +10,35 @@ public class ProceduralTerrainGenerator : MonoBehaviour
 
     [SerializeField] float _xOffset;
     [SerializeField] float _yOffset;
+    [SerializeField] bool _animateTerrain;
 
     private Terrain _terrain;
+    private Vector2 _animateDirection;
 
     void Awake()
     {
         _terrain = GetComponent<Terrain>();
     }
 
+    void Start()
+    {
+        _xOffset = UnityEngine.Random.Range(0, 9999f);
+        _yOffset = UnityEngine.Random.Range(0, 9999f);
+
+        if (_animateTerrain)
+        {
+            InvokeRepeating("SortTerrain", 0f, 1f);
+        }
+    }
+
     void Update()
     {
         _terrain.terrainData = GenerateTerrain(_terrain.terrainData);
+        if (_animateTerrain)
+        {
+            _xOffset += _animateDirection.x * Time.deltaTime;
+            _yOffset += _animateDirection.y * Time.deltaTime;
+        }
     }
 
     private TerrainData GenerateTerrain(TerrainData terrainData)
@@ -54,5 +72,16 @@ public class ProceduralTerrainGenerator : MonoBehaviour
         float yCoord = (float)y / _height * _scale + _yOffset;
 
         return Mathf.PerlinNoise(xCoord, yCoord);
+    }
+
+    private void SortTerrain()
+    {
+        _xOffset = UnityEngine.Random.Range(0, 9999f);
+        _yOffset = UnityEngine.Random.Range(0, 9999f);
+
+        _depth = UnityEngine.Random.Range(0, 35);
+        _scale = UnityEngine.Random.Range(5, 15);
+
+        _animateDirection = new Vector2(UnityEngine.Random.Range(-0.6f, 0.6f), UnityEngine.Random.Range(-0.6f, 0.6f));
     }
 }

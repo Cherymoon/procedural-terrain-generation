@@ -156,8 +156,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _width: 256
   _height: 256
-  _depth: 10
+  _depth: 25
   _scale: 5
+  _xOffset: 0
+  _yOffset: 0
+  _animateTerrain: 1
 --- !u!154 &258414235
 TerrainCollider:
   m_ObjectHideFlags: 0

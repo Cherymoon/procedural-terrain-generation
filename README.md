@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-# procedural-terrain-generation
-=======
-Procedural Terrain Generation based on Perlin Noise algorithm.
+# Procedural Terrain Generation based on Perlin Noise algorithm.
+
 <br><br>
 Procedural generation is an algorithmic technique that dynamically creates content, offering endless possibilities for generating complex and realistic terrains in a variety of applications, including games, simulations, and visualizations.
 <br><br>

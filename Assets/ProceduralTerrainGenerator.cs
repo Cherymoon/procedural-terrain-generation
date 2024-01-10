@@ -8,6 +8,9 @@ public class ProceduralTerrainGenerator : MonoBehaviour
     [SerializeField] int _depth;
     [SerializeField] float _scale;
 
+    [SerializeField] float _xOffset;
+    [SerializeField] float _yOffset;
+
     private Terrain _terrain;
 
     void Awake()
@@ -47,8 +50,8 @@ public class ProceduralTerrainGenerator : MonoBehaviour
 
     private float GetHighAtPoint(int x, int y)
     {
-        float xCoord = (float)x / _width * _scale;
-        float yCoord = (float)y / _height * _scale;
+        float xCoord = (float)x / _width * _scale + _xOffset;
+        float yCoord = (float)y / _height * _scale + _yOffset;
 
         return Mathf.PerlinNoise(xCoord, yCoord);
     }

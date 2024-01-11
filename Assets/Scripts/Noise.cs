@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Noise : MonoBehaviour
+public static class Noise
 {
-    // Start is called before the first frame update
-    void Start()
+    public static float[,] GenerateNoiseMap(int width, int height, float scale)
     {
-        
-    }
+        float[,] noiseMap = new float[width, height];
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (scale <= 0)
+        {
+            scale = .001f;
+        }
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                float xCoord = (float)x / scale;
+                float yCoord = (float)y / scale;
+
+                float perlinValue = Mathf.PerlinNoise(xCoord, yCoord);
+
+                noiseMap[x, y] = perlinValue;
+            }
+        }
+
+        return noiseMap;
     }
 }

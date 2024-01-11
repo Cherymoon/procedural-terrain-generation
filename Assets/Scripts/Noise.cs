@@ -6,9 +6,9 @@ public static class Noise
     {
         float[,] noiseMap = new float[width, height];
 
-        if (scale <= 0)
+        if (scale <= 1.1f)
         {
-            scale = .001f;
+            scale = 1.1f;
         }
 
         for (int x = 0; x < width; x++)

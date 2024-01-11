@@ -17,7 +17,7 @@ public class MapDisplay : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                colourMap[width * x + y] = Color.Lerp(Color.black, Color.white, noiseMap[x, y]);
+                colourMap[y * width + x] = Color.Lerp(Color.black, Color.white, noiseMap[x, y]);
             }
         }
 

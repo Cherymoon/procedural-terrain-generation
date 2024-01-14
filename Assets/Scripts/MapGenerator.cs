@@ -9,6 +9,9 @@ public class MapGenerator : MonoBehaviour
     public float persistance;
     public float lacunarity;
 
+    public int seed;
+    public Vector2 offset;
+
     public bool autoUpdate;
 
     public void GenerateMap()

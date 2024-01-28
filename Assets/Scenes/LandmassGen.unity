@@ -266,6 +266,13 @@ MonoBehaviour:
   octaves: 4
   persistance: 0.5
   lacunarity: 2
+  regions:
+  - name: Water
+    height: 0.4
+    color: {r: 0.13336597, g: 0.35329157, b: 0.764151, a: 0}
+  - name: Land
+    height: 1
+    color: {r: 0.09344961, g: 0.7924528, b: 0.27038893, a: 0}
   seed: 10
   offset: {x: 0, y: 0}
   autoUpdate: 1

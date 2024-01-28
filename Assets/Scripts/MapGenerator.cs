@@ -10,6 +10,8 @@ public class MapGenerator : MonoBehaviour
     public float persistance;
     public float lacunarity;
 
+    public TerrainType[] regions;
+
     public int seed;
     public Vector2 offset;
 
@@ -18,6 +20,25 @@ public class MapGenerator : MonoBehaviour
     public void GenerateMap()
     {
         float[,] noiseMap = Noise.GenerateNoiseMap(mapWidth, mapHeight, seed, noiseScale, octaves, persistance, lacunarity, offset);
+
+        Color[] colorMap = new Color[mapWidth * mapHeight];
+
+        for (int y = 0; y < mapHeight; y++)
+        {
+            for (int x = 0; x < mapWidth; x++)
+            {
+                float currentHeight = noiseMap[x, y];
+                for (int r = 0; r < regions.Length; r++)
+                {
+                    if(currentHeight <= regions[r].height)
+                    {
+
+                        break;
+                    }
+                }
+            }
+        }
+
 
         MapDisplay mapDisplay = FindObjectOfType<MapDisplay>();
 
@@ -43,4 +64,12 @@ public class MapGenerator : MonoBehaviour
             octaves = 0;
         }
     }
+}
+
+[System.Serializable]
+public struct TerrainType
+{
+    public string name;
+    public float height;
+    public Color color;
 }

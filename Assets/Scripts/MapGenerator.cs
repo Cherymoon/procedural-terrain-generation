@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    public enum DrawMode
+    {
+        NoiseMap, ColorMap
+    }
+    public DrawMode drawMode;
+
     public int mapWidth;
     public int mapHeight;
     public float noiseScale;
@@ -30,19 +36,25 @@ public class MapGenerator : MonoBehaviour
                 float currentHeight = noiseMap[x, y];
                 for (int r = 0; r < regions.Length; r++)
                 {
-                    if(currentHeight <= regions[r].height)
+                    if (currentHeight <= regions[r].height)
                     {
-
+                        colorMap[y * mapWidth + x] = regions[r].color;
                         break;
                     }
                 }
             }
         }
 
-
         MapDisplay mapDisplay = FindObjectOfType<MapDisplay>();
 
-        mapDisplay.DrawNoiseMap(noiseMap);
+        if (drawMode == DrawMode.NoiseMap)
+        {
+            mapDisplay.DrawTexture(TextureGenerator.TextureFromHeightMap(noiseMap));
+        }
+        else if (drawMode == DrawMode.ColorMap)
+        {
+            mapDisplay.DrawTexture(TextureGenerator.TextureFromColorMap(colorMap, mapWidth, mapHeight));
+        }
     }
 
     void OnValidate()

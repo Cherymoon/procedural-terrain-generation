@@ -265,17 +265,35 @@ MonoBehaviour:
   mapHeight: 100
   noiseScale: 25
   octaves: 4
-  persistance: 0.152
-  lacunarity: 2
+  persistance: 1
+  lacunarity: 1.37
   regions:
-  - name: Water
+  - name: Deep Water
+    height: 0.3
+    color: {r: 0.09371662, g: 0.31706697, b: 0.735849, a: 0}
+  - name: Shallow Water
     height: 0.4
-    color: {r: 0.13336597, g: 0.35329157, b: 0.764151, a: 0}
-  - name: Land
+    color: {r: 0.09411764, g: 0.35016173, b: 0.7372549, a: 0}
+  - name: Sand
+    height: 0.5
+    color: {r: 0.80784315, g: 0.81960785, b: 0.54901963, a: 0}
+  - name: Grass
+    height: 0.55
+    color: {r: 0.09803922, g: 0.6117647, b: 0.2843539, a: 0}
+  - name: Grass 2
+    height: 0.6
+    color: {r: 0.08627451, g: 0.53333336, b: 0.3254902, a: 0}
+  - name: Rock
+    height: 0.7
+    color: {r: 0.41509432, g: 0.379248, b: 0.31523672, a: 0}
+  - name: Rock 2
+    height: 0.9
+    color: {r: 0.3882353, g: 0.3254902, b: 0.31764707, a: 0}
+  - name: Snow
     height: 1
-    color: {r: 0.09344961, g: 0.7924528, b: 0.27038893, a: 0}
-  seed: 10
-  offset: {x: 10, y: 0}
+    color: {r: 0.86788005, g: 0.9339623, b: 0.92590743, a: 0}
+  seed: 18
+  offset: {x: 11.8, y: 10}
   autoUpdate: 1
 --- !u!4 &717560343
 Transform:
@@ -285,13 +303,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717560340}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 936, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1 &1295253683
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,13 +478,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551628037}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 450, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 936, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

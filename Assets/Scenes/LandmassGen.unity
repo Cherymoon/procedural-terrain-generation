@@ -266,7 +266,7 @@ MonoBehaviour:
   noiseScale: 25
   octaves: 4
   persistance: 1
-  lacunarity: 1.37
+  lacunarity: 1.5
   regions:
   - name: Deep Water
     height: 0.3
